@@ -6,7 +6,6 @@ import { ProductShow } from './ProductShow'
 import { Modal } from './Modal'
 import { Signup } from './Signup'
 import { Login } from './Login'
-import { LogoutLink } from './Logout'
 import { About } from './About'
 import { Routes, Route } from 'react-router-dom'
 
@@ -89,4 +88,3 @@ export function Content() {
     </div>
   )
 }
-
