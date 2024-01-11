@@ -24,9 +24,6 @@ return(
       <p>
         inventory:<input name="inventory" type="integer"/>
       </p>
-      {/* <p>
-        Supplier:<input name="supplier_id" type="integer"/>
-      </p> */}
 
       <button type="submit"> NEW Product</button>
     </form>
