@@ -7,14 +7,17 @@ import { Modal } from './Modal'
 import { Signup } from './Signup'
 import { Login } from './Login'
 import { About } from './About'
+import { ShopingCart } from './ShoppingCart'
 import { Routes, Route } from 'react-router-dom'
-
+import { OrderIndex } from './OrderIndex'
 
 
 export function Content() {
   const [products, setProduct] = useState([])
   const [isProductShowVisible, setIsProductShowVisible] = useState(false)
-  const [currentProduct, setCurrentProduct] = useState({})
+  const [currentProduct, setCurrentProduct] = useState([])
+  
+
 
   const handleGetProducts =() => {
     console.log('in get products');
@@ -22,7 +25,8 @@ export function Content() {
       setProduct(response.data)
     })
   }
-  
+
+
   const handleCreateProduct = (params, successCallback) => {
     console.log("handleCreateProduct", params);
     axios.post("http://localhost:3000/products.json").then(response => {
@@ -80,6 +84,8 @@ export function Content() {
         <Route path='/login' element={<Login/>}/>
         <Route path='/new' element={<ProductNew onCreateProduct={handleCreateProduct}/>}/>
         <Route path='/' element={<ProductIndex products={products} onShowProduct ={handleShowProduct}/>}/>
+        <Route path='/shoppingcart' element={<ShopingCart/>}/>
+        <Route path='/order' element={<OrderIndex/>}/>
       </Routes>
      
       <Modal show={isProductShowVisible} onClose={handleClose}>

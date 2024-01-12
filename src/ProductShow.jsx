@@ -4,9 +4,6 @@ export function ProductShow(props) {
     event.preventDefault()
     const params = new FormData(event.target)
     axios.post('http://localhost:3000/cart.json', params).then(response => {console.log(response.data)})
-
-    // props.onUpdateProduct(props.product.id, params, () => event.target.reset())
-
   }
   const handleClick = () => {
     props.onDestroyProduct(props.product)
