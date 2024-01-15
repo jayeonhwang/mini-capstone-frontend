@@ -1,6 +1,11 @@
 import axios from "axios"
+import {useEffect, useState} from 'react'
+
 
 export function ProductNew(props) {
+
+  const [suppliers, setSuppliers] = useState([])
+
   const createProduct = (event) => {    
     event.preventDefault();
     const params = new FormData(event.target)    
@@ -8,6 +13,17 @@ export function ProductNew(props) {
     
     console.log('creating product...')
   }
+
+  const productsIndex = () => {
+    console.log("suppliers")
+    axios.get("http://localhost:3000/suppliers.json").then(response =>{
+      console.log(response.data)
+      setSuppliers(response.data)
+    })
+  }
+
+  useEffect(productsIndex,[])
+
 return(
   <div>
     <h1>New Product</h1>
@@ -21,10 +37,12 @@ return(
       <p>
         Description:<input name="description" type="text"/>
       </p>
-      <p>
-        inventory:<input name="inventory" type="integer"/>
-      </p>
 
+      <select name="supplier"> 
+      {suppliers.map(supplier => (
+        <option>{supplier.name}</option>
+      ))}
+      </select>
       <button type="submit"> NEW Product</button>
     </form>
   </div>

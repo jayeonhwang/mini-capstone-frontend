@@ -28,8 +28,9 @@ export function Content() {
 
 
   const handleCreateProduct = (params, successCallback) => {
+
     console.log("handleCreateProduct", params);
-    axios.post("http://localhost:3000/products.json").then(response => {
+    axios.post("http://localhost:3000/products.json", params).then(response => {
       setProduct([...products, response.data])
       successCallback()
     })

@@ -15,6 +15,9 @@ export function Header() {
           <a className="nav-link active" aria-current="page" href="/shoppingcart">Cart</a>
         </li>
         <li className="nav-item">
+          <a className="nav-link active" aria-current="page" href="/order">Order</a>
+        </li>
+        <li className="nav-item">
           <a className="nav-link" href="/new">New</a>
         </li>
         <li className="nav-item dropdown">
