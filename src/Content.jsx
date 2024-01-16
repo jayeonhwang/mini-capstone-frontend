@@ -10,6 +10,7 @@ import { About } from './About'
 import { ShopingCart } from './ShoppingCart'
 import { Routes, Route } from 'react-router-dom'
 import { OrderIndex } from './OrderIndex'
+import { OrderShow } from './OrderShow'
 
 
 export function Content() {
@@ -87,6 +88,7 @@ export function Content() {
         <Route path='/' element={<ProductIndex products={products} onShowProduct ={handleShowProduct}/>}/>
         <Route path='/shoppingcart' element={<ShopingCart/>}/>
         <Route path='/order' element={<OrderIndex/>}/>
+        <Route path='/order/:id' element={<OrderShow/>}/>
       </Routes>
      
       <Modal show={isProductShowVisible} onClose={handleClose}>

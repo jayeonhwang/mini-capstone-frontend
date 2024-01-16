@@ -16,6 +16,7 @@ export function ShopingCart() {
     // console.log("creating order")
     axios.post('http://localhost:3000/orders.json').then(response => {
       console.log(response.data);
+      window.location.href =`/order/${response.data.id}`
     })
   }
 

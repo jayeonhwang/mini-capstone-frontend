@@ -20,7 +20,7 @@ export function OrderIndex() {
       <h1>This is your orders</h1>
       {orderIndexs.map(orderIndex => (
         <div key={orderIndex.id}>
-          <p><b>Order date: {orderIndex.created_at}</b></p>
+          <p><b>Order date: {orderIndex.id}</b></p>
           <p>Subtotal: {orderIndex.subtotal}</p>
           <p>Tax: {orderIndex.tax}</p>
           <p>Total:{orderIndex.total}</p>
