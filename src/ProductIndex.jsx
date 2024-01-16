@@ -1,11 +1,26 @@
+import { useState } from "react"
+
+
 export function ProductIndex(props) {
-  console.log(props.products)
+  // console.log(props.products)
+  const [searchTerm, setSearchterm] = useState("")
+
+
   return (
     <div id="product-index">
       <h1>All Products</h1>
+      <p>
+        Search:<input type="text" value ={searchTerm} onChange={(event) => setSearchterm(event.target.value)}/>
+      </p>
+      {searchTerm}
+
       <div className="row">
-      {props.products.map((product, index) => (
-        <div key={index} className="col-sm-4">
+      {props.products.filter(
+        product => product.name.toLowerCase()
+        .includes(searchTerm.toLowerCase())
+        )
+        .map(product => (
+        <div key={product.id} className="col-sm-4">
           <div className="card" style={{ width: '18rem' }}>
             <p>
               {product.images.length > 0 && (
