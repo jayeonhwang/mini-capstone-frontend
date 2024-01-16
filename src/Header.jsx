@@ -1,6 +1,25 @@
 import { LogoutLink } from './Logout'
 
 export function Header() {
+
+  let loggedInStatus
+
+  if(localStorage.jwt) {
+    loggedInStatus = (
+      <>
+      <li><LogoutLink/></li>
+      </>
+    )
+  }else{
+    loggedInStatus = (
+      <>  
+      <li><a className="dropdown-item" href="/signup">Signup</a></li>
+      <li><a className="dropdown-item" href="/login">Login</a></li>
+      </>
+    )
+  }
+  
+
   return (
     <header>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -22,13 +41,10 @@ export function Header() {
         </li>
         <li className="nav-item dropdown">
           <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Login
+            Authentication
           </a>
           <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="/signup">Signup</a></li>
-            <li><a className="dropdown-item" href="/login">Login</a></li>
-            <li><hr className="dropdown-divider"/></li>
-            <li><LogoutLink/></li>
+           {loggedInStatus}
           </ul>
         </li>
         <li className="nav-item">

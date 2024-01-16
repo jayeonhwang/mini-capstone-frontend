@@ -1,9 +1,11 @@
 import axios from 'axios'
 export function ProductShow(props) {
+
   const addToCart =(event) => {
     event.preventDefault()
     const params = new FormData(event.target)
     axios.post('http://localhost:3000/cart.json', params).then(response => {console.log(response.data)})
+    window.location.href =`/shoppingcart`
   }
   const handleClick = () => {
     props.onDestroyProduct(props.product)
