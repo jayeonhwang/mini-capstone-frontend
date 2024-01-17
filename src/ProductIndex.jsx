@@ -2,7 +2,7 @@ import { useState } from "react"
 
 
 export function ProductIndex(props) {
-  // console.log(props.products)
+  console.log(props.products)
   const [searchTerm, setSearchterm] = useState("")
 
 
@@ -10,8 +10,13 @@ export function ProductIndex(props) {
     <div id="product-index">
       <h1>All Products</h1>
       <p>
-        Search:<input type="text" value ={searchTerm} onChange={(event) => setSearchterm(event.target.value)}/>
+        Search:<input type="text" value ={searchTerm} onChange={(event) => setSearchterm(event.target.value)} list="name"/>
       </p>
+      <datalist id ="name">
+        {props.products.map(product => (
+          <option>{product.name}</option>
+        ))}
+      </datalist>
       {searchTerm}
 
       <div className="row">
